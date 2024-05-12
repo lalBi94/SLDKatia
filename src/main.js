@@ -29,11 +29,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors(corsOption));
 app.use((req, res, next) => {
-    console.log(
-        "\n↓↓↓↓↓↓↓↓↓",
-        req.ip || req.connection.remoteAddress,
-        "↓↓↓↓↓↓↓↓↓"
-    );
+    console.log("\n↓↓↓↓↓↓↓↓↓", req.ip || req.connection.remoteAddress);
     next();
 });
 
