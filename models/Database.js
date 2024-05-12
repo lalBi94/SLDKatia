@@ -9,6 +9,7 @@ const moment = require("moment");
 class Database {
     constructor() {
         this.link = `${process.env.DB}?retryWrites=true&w=majority`;
+        console.log(this.link);
 
         this.client = new MongoClient(this.link, {
             serverApi: {
