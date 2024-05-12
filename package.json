@@ -10,6 +10,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "start": "node src/main.js",
     "server": "node src/main.js",
     "deploy_server": "git add . && git commit -m \"[ASKING AUTO-DEPLOY]\" && git push"
   },
