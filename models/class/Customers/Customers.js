@@ -25,8 +25,6 @@ class Customers {
 
         this.collections = {
             list: this.database.collection("list"),
-            history: this.database.collection("history"),
-            reservations: this.database.collection("reservations"),
         };
 
         if (first) {
@@ -360,6 +358,19 @@ class Customers {
         try {
             const n = (await this.collections.list.find().toArray()).length;
             return { status: this.status.succes, n: n };
+        } catch (err) {
+            console.error(err);
+            return { status: this.status.error };
+        }
+    }
+
+    async getInfoBy(id) {
+        try {
+            const user = await this.collections.list.findOne({
+                _id: new ObjectId(id),
+            });
+
+            return { status: this.status.succes, data: user };
         } catch (err) {
             console.error(err);
             return { status: this.status.error };

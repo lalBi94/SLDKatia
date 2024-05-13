@@ -53,6 +53,25 @@ router.post("/getAllUsers", (req, res) => {
     }
 });
 
+// TODO: METTRE LES CHECK ADMIN dans un middleware
+
+/**
+ * Recuperer les informations d'un utilisateur a partir de son id
+ * Endpoint: POST /getInfoBy
+ */
+router.post("/getInfoBy", (req, res) => {
+    try {
+        const { data } = req.body;
+        const { id } = JSON.parse(KCDecrypt(data));
+
+        customers_services.getInfoBy(id).then((a) => {
+            res.json(KSEncrypt(JSON.stringify(a)));
+        });
+    } catch (err) {
+        console.error(err);
+    }
+});
+
 /**
  * Enregistrer un nouvel utilisateur.
  * Endpoint: POST /register
