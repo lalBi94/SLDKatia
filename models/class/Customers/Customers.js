@@ -370,6 +370,8 @@ class Customers {
                 _id: new ObjectId(id),
             });
 
+            delete user.password;
+
             return { status: this.status.succes, data: user };
         } catch (err) {
             console.error(err);
