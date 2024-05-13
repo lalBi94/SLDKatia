@@ -25,12 +25,12 @@ const { KCDecrypt, KSEncrypt } = require("../../services/KTSec");
  * Créer un produit
  * Endpoint: POST /setItem
  */
-router.post("/setItem", (req, res) => {
+router.post("/setItem", upload.single("imgRef"), (req, res) => {
     try {
         const { token, name, price, promotion, imgRef, category } = req.body;
-        console.log(token);
 
         customer_services.decodeToken(token).then((account) => {
+            if (!account) return null;
             if (account.type !== "admin") return null;
         });
 
