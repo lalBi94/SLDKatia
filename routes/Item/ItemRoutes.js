@@ -28,6 +28,7 @@ const { KCDecrypt, KSEncrypt } = require("../../services/KTSec");
 router.post("/setItem", (req, res) => {
     try {
         const { token, name, price, promotion, imgRef, category } = req.body;
+        console.log(token);
 
         customer_services.decodeToken(token).then((account) => {
             if (account.type !== "admin") return null;
