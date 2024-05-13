@@ -207,7 +207,6 @@ class Customers {
                 password: password,
             });
 
-            console.log(flag);
             delete flag.password;
 
             if (flag) {
@@ -242,8 +241,6 @@ class Customers {
         try {
             const decoded = await this.decodeToken(token);
             if (!password && decoded) delete decoded.password;
-
-            console.log(decoded);
 
             if (decoded) {
                 console.log(

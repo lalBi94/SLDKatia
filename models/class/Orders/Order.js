@@ -185,7 +185,6 @@ class Order {
             });
 
             if (!result) {
-                console.log(result);
                 return { status: this.status.error };
             }
 
@@ -210,7 +209,6 @@ class Order {
             if (query.modifiedCount > 0) {
                 return { status: this.status.succes };
             } else {
-                console.log("mod");
                 return { status: this.status.error };
             }
         } catch (err) {

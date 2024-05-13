@@ -85,8 +85,6 @@ router.post("/getOrdersOf", upload.none(), (req, res) => {
     try {
         const { token } = req.body;
 
-        console.log(token, req.body);
-
         order_services.getOrdersOf(token).then((d) => {
             res.json(d);
         });
