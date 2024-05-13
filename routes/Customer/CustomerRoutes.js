@@ -62,10 +62,14 @@ router.post("/getAllUsers", (req, res) => {
 router.post("/getInfoBy", (req, res) => {
     try {
         const { data } = req.body;
-        const { id } = JSON.parse(KCDecrypt(data));
+        const { token, id } = JSON.parse(KCDecrypt(data));
 
-        customers_services.getInfoBy(id).then((a) => {
-            res.json(KSEncrypt(JSON.stringify(a)));
+        customers_services.decodeToken(token).then((a) => {
+            if (a.type !== "admin") return null;
+        });
+
+        customers_services.getInfoBy(id).then((b) => {
+            res.json(KSEncrypt(JSON.stringify(b)));
         });
     } catch (err) {
         console.error(err);
