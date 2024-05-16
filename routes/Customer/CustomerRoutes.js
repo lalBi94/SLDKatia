@@ -62,6 +62,7 @@ router.post("/getAllUsers", (req, res) => {
 router.post("/getInfoBy", (req, res) => {
     try {
         const { data } = req.body;
+
         const { token, id } = JSON.parse(KCDecrypt(data));
 
         customers_services.decodeToken(token).then((a) => {
@@ -116,6 +117,7 @@ router.post("/login", (req, res) => {
         const { data } = req.body;
 
         const decrypt = JSON.parse(KCDecrypt(data));
+        console.log(decrypt);
         const decryptEmail = decrypt.email;
         const decryptPassword = decrypt.password;
 

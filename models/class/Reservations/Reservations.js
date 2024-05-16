@@ -248,6 +248,11 @@ class Reservations {
     async getSolde() {
         try {
             const query = await this.collections.list.find().toArray();
+
+            if (query.length === 0 || !query) {
+                return { status: this.status.succes, av: 0.0, ca: 0.0 };
+            }
+
             let CA = 0;
             let AV = 0;
 

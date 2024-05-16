@@ -48,11 +48,13 @@ const order = require("../routes/Order/OrderRoutes");
 const customer = require("../routes/Customer/CustomerRoutes");
 const reservation = require("../routes/Reservation/ReservationRoutes");
 const us = require("../routes/Us/UsRoutes");
+const support = require("../routes/Support/SupportRoutes");
 app.use("/customer", customer);
 app.use("/item", item);
 app.use("/order", order);
 app.use("/reservation", reservation);
 app.use("/us", us);
+app.use("/support", support);
 
 app.listen(process.env.PORT, () => {
     console.log(

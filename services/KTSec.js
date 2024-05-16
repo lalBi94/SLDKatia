@@ -3,7 +3,7 @@ const KS_K = 43870257;
 /**
  * Chiffrer des reponses du serveur
  * @param {string} w Chaine a Chaine a chiffrer
- * @return {Promise<?string>}
+ * @return {?string}
  */
 const KSEncrypt = (w) => {
     try {
@@ -27,6 +27,10 @@ const KSEncrypt = (w) => {
  */
 const KCDecrypt = (w) => {
     try {
+        if (w.length === 0) {
+            return "";
+        }
+
         const splitedW = w.split("##.");
         let newW = "";
 
