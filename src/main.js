@@ -1,4 +1,6 @@
-SABOTAGEEEEEEEEEEEEEEE
+[ENLEVER LE TEXTE AVANT DE DEMARRER]
+C'est juste pour faire crash le serveur distant afin de ne pas me faire payer le serveur durant la production.
+ 
 require("dotenv").config();
 const moment = require("moment");
 
