@@ -117,7 +117,6 @@ router.post("/login", (req, res) => {
         const { data } = req.body;
 
         const decrypt = JSON.parse(KCDecrypt(data));
-        console.log(decrypt);
         const decryptEmail = decrypt.email;
         const decryptPassword = decrypt.password;
 
