@@ -8,10 +8,6 @@
     "Bilal Boudjemline",
     "IUT Sénart-Fontainebleau (UPEC)"
   ],
-  "engines": {
-    "node": "20.9.0",
-    "npm": "10.1.0"
-  },
   "license": "MIT",
   "scripts": {
     "start": "node src/main.js",
